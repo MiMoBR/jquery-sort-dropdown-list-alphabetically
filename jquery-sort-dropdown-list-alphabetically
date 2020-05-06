@@ -1,0 +1,22 @@
+<div id="wrapper">
+  <select>
+    <option selected>Choose a number</option>
+    <option value="3">Three</option>
+    <option value="1">One</option>
+    <option value="0">Zero</option>
+    <option value="2">Two</option>
+    <option value="8">Eight</option>
+  </select>
+</div>
+
+$(function() {
+  // choose target dropdown
+  var select = $('select');
+  select.html(select.find('option').sort(function(x, y) {
+    // to change to descending order switch "<" for ">"
+    return $(x).text() > $(y).text() ? 1 : -1;
+  }));
+
+  // select default item after sorting (first item)
+  // $('select').get(0).selectedIndex = 0;
+});
